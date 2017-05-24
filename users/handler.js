@@ -31,15 +31,20 @@ module.exports.create = (event, context, callback) => {
 
     let database = getApp().database();
 
+    let user = {};
+
+    try {
+        user = JSON.parse(event.body)
+    } catch (err) {
+        // nothing for now
+    }
+
     database
         .ref('users')
         .push()
         .set(event)
         .then(() => {
-            next(null, {
-                message: 'OK',
-                input: event,
-            })
+            next(null, user);
         })
         .catch((error) => {
             next(null, {
