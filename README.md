@@ -9,6 +9,8 @@ Stack:
 
 ![how](./how.gif)
 
+[YouTube Video](https://www.youtube.com/watch?v=NnTmtOmoEJQ)
+
 How to setup:
 - AWS Sign in [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home)
 - Install Node.js [https://nodejs.org/en/](https://nodejs.org/en/) 
