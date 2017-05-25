@@ -2,7 +2,7 @@
 
 const firebase = require('firebase');
 
-function getApp() {
+module.exports.create = (event, context, callback) => {
     const config = {
         apiKey: "AIzaSyBtKInuDDQs-gx9P99RLbfaAnew8BhxMOA",
         authDomain: "serverless-app-6014d.firebaseapp.com",
@@ -11,10 +11,9 @@ function getApp() {
         storageBucket: "serverless-app-6014d.appspot.com",
         messagingSenderId: "373661540340"
     };
-    return firebase.initializeApp(config)
-}
 
-module.exports.create = (event, context, callback) => {
+    firebase.initializeApp(config)
+
     const next = (err, body) => {
         if (err) {
             return callback(err);
@@ -29,7 +28,7 @@ module.exports.create = (event, context, callback) => {
         callback(null, response);
     };
 
-    let database = getApp().database();
+    let database = firebase.database();
 
     let user = {};
 
