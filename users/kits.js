@@ -8,7 +8,7 @@ module.exports = kits({
         return firebase;
     },
     UserService: ({UserStorage}) => {
-        const UserService = require('./UserService');
+        const UserService = require('./services/UserService');
         return new UserService(UserStorage);
     },
     UserStorage: ({config}) => {
@@ -16,7 +16,7 @@ module.exports = kits({
         return new Storage(config.get('google'));
     },
     HttpService: () => {
-        const HttpService = require('./HttpService');
+        const HttpService = require('./services/HttpService');
         return new HttpService();
     }
 });
