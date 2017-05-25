@@ -1,18 +1,7 @@
 'use strict';
 
-const firebase = require('firebase');
-
 module.exports.create = (event, context, callback) => {
-    const config = {
-        apiKey: "AIzaSyBtKInuDDQs-gx9P99RLbfaAnew8BhxMOA",
-        authDomain: "serverless-app-6014d.firebaseapp.com",
-        databaseURL: "https://serverless-app-6014d.firebaseio.com",
-        projectId: "serverless-app-6014d",
-        storageBucket: "serverless-app-6014d.appspot.com",
-        messagingSenderId: "373661540340"
-    };
-
-    firebase.initializeApp(config)
+    const {UserService, HttpService} = require('./kits');
 
     const next = (err, body) => {
         if (err) {
@@ -24,11 +13,10 @@ module.exports.create = (event, context, callback) => {
             body: JSON.stringify(body),
         };
 
-        database.goOffline();
-        callback(null, response);
+        UserService.flush().then(() => {
+            callback(null, response);
+        }, callback);
     };
-
-    let database = firebase.database();
 
     let user = {};
 
@@ -38,16 +26,8 @@ module.exports.create = (event, context, callback) => {
         // nothing for now
     }
 
-    database
-        .ref('users')
-        .push()
-        .set(event)
-        .then(() => {
+    UserService.addUser(event)
+        .then((user) => {
             next(null, user);
-        })
-        .catch((error) => {
-            next(null, {
-                error: error.message
-            });
-        })
+        }, next);
 };
