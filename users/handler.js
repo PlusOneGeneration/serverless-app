@@ -5,7 +5,7 @@ module.exports.create = (event, context, callback) => {
 
     const next = (err, body) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
 
             return callback(null, {
                 statusCode: 500,
@@ -25,7 +25,7 @@ module.exports.create = (event, context, callback) => {
 
     HttpService.parseBody(event.body)
         .then((body) => {
-            console.log({event, body});
+            // console.log({event, body});
 
             UserService.addUser(body)
                 .then((user) => next(null, user))
