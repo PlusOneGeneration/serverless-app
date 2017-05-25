@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^1.26.1",
     "firebase": "^4.0.0",
+    "google-spreadsheet": "^2.0.3",
     "kits": "0.0.10",
     "qs": "^6.4.0"
   }

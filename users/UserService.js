@@ -6,7 +6,8 @@ module.exports = class UserService {
     }
 
     addUser(user) {
-        return Promise.resolve(this.UserStorage.addUser(user));
+        return Promise.resolve(this.UserStorage.addUser(user))
+            .then(() => user);
     }
 
     flush() {
