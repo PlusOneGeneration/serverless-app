@@ -18,16 +18,12 @@ module.exports.create = (event, context, callback) => {
         }, callback);
     };
 
-    let user = {};
+    HttpService.parseBody(event.body)
+        .then((body) => {
+            UserService.addUser(event)
+                .then((user) => {
+                    next(null, body);
+                }, next);
+        });
 
-    try {
-        user = JSON.parse(event.body)
-    } catch (err) {
-        // nothing for now
-    }
-
-    UserService.addUser(event)
-        .then((user) => {
-            next(null, user);
-        }, next);
 };
