@@ -21,6 +21,7 @@ How to setup:
 	* `serviceKey` it's **Service Account** [follow this instructions](https://www.npmjs.com/package/google-spreadsheet#service-account-recommended-method) 
 	* `spreadsheet` __key should be__ docs.google.com/spreadsheets/d/**11Sso5yOjzpF_xxxxV1f24IWwjVl5uZMDNXlbtmXIBFc**/edit#gid=0
 	  * Make sure that you have `JSON` column in the google spreadsheet. (First line of spread sheet)
+- Install dependencies `cd users && npm install`
 - Deployment: `cd users && serverless deploy`
 - It will give you endpoint to POST
 	* for ex. `https://j66dyaz0de.execute-api.us-east-1.amazonaws.com/dev/users`
