@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  users:
+    build: ./users/.
+    command: bash
+    working_dir: /app
+    volumes:
+      - ./users:/app
