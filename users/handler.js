@@ -5,7 +5,7 @@ module.exports.create = (event, context, callback) => {
 
     const next = (err, body) => {
         if (err) {
-            // console.log(err);
+            console.log('error', err);
 
             return callback(null, {
                 statusCode: 500,
