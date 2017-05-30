@@ -11,8 +11,9 @@ module.exports = class GoogleSpreadsheetUserStorage {
             doc.useServiceAccountAuth(this.googleConfig.serviceKey, function (err) {
                 if (err) return reject(err);
 
-                const records = {JSON: JSON.stringify(user)};
-                doc.addRow(1, records, function (err) {
+                const json = JSON.stringify(user);
+                const fields = Object.assign({JSON: json}, user);
+                doc.addRow(1, fields, function (err) {
                     if (err) return reject(err);
                     resolve();
                 });
