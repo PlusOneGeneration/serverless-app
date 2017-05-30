@@ -33,6 +33,7 @@ App pushes POST payload to google spreadsheet.
 - It will give you endpoint to POST
 	* for ex. `https://j66dyaz0de.execute-api.us-east-1.amazonaws.com/dev/users`
 - Now you can post and payload will be saved into JSON column.
+- To see logs: `serverless logs -f users-create`
 
 ### Docker way (OS isolated)
 - AWS Sign in [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home)
