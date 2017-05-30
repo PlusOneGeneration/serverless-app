@@ -11,6 +11,11 @@ App pushes POST payload to google spreadsheet.
 
 [YouTube Video](https://www.youtube.com/watch?v=NnTmtOmoEJQ)
 
+
+##### How to setup AWS side.
+![how AWS](./how-aws.gif)
+[YouTube Video](https://youtu.be/s5Ovnn4tuvA)
+
 ### How to setup:
 - AWS Sign in [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home)
 - Install Node.js [https://nodejs.org/en/](https://nodejs.org/en/) 
